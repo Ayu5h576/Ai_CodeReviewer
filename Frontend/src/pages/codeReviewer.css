@@ -1,0 +1,232 @@
+* {
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at 20% 10%, #1f2356 0%, transparent 45%),
+    radial-gradient(circle at 80% 80%, #3b1d5f 0%, transparent 45%),
+    #07080f;
+  font-family: Inter, system-ui, sans-serif;
+  color: #e5e7eb;
+}
+
+.app-container {
+  display: flex;
+  height: 100vh;
+  padding: 22px;
+  gap: 22px;
+}
+
+/* ================= Panels ================= */
+
+.editor-panel,
+.review-panel {
+  flex: 1;
+  background:
+    linear-gradient(180deg, rgba(22,27,34,.9), rgba(8,10,16,.95));
+  border-radius: 18px;
+  display: flex;
+  flex-direction: column;
+  box-shadow:
+    0 20px 50px rgba(0,0,0,.7),
+    inset 0 0 0 1px rgba(255,255,255,.03);
+  position: relative;
+  overflow: hidden;
+}
+
+/* soft glow edge */
+.editor-panel::after,
+.review-panel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  pointer-events: none;
+  box-shadow: inset 0 0 40px rgba(99,102,241,.08);
+}
+
+/* ================= Headers ================= */
+
+header {
+  padding: 16px 22px;
+  font-weight: 600;
+  letter-spacing: .3px;
+  background: rgba(0,0,0,.45);
+  border-bottom: 1px solid rgba(255,255,255,.05);
+  backdrop-filter: blur(10px);
+}
+
+/* ================= Editor ================= */
+
+.editor {
+  flex: 1;
+  font-family: "Fira Code", monospace;
+  font-size: 15px;
+  background: transparent !important;
+  outline: none;
+  color: #e5e7eb;
+  padding: 6px;
+}
+
+/* ================= Button ================= */
+
+.review-btn {
+  border: none;
+  background: linear-gradient(135deg,#6366f1,#8b5cf6,#a855f7);
+  color: white;
+  padding: 16px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all .25s ease;
+  border-radius: 0 0 18px 18px;
+}
+
+.review-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 35px rgba(139,92,246,.45);
+}
+
+/* ================= Review Area ================= */
+
+.review-content {
+  padding: 26px;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  max-width: 900px;
+}
+
+/* hide scrollbar but keep scroll */
+.review-content::-webkit-scrollbar {
+  display: none;
+}
+
+/* ================= Chat Bubble ================= */
+
+.chat-bubble {
+  background:
+    linear-gradient(180deg,#0d1117,#020617);
+  border-radius: 18px;
+  padding: 24px;
+  border: 1px solid rgba(255,255,255,.06);
+  box-shadow: 0 10px 30px rgba(0,0,0,.6);
+  animation: fadeIn .35s ease;
+}
+
+/* ================= States ================= */
+
+.placeholder {
+  color: #94a3b8;
+  text-align: center;
+  margin-top: 80px;
+  font-size: 15px;
+}
+
+.typing {
+  color: #a5b4fc;
+  font-style: italic;
+  animation: pulse 1.2s infinite;
+}
+
+/* ================= Markdown Styling ================= */
+
+.review-content h1 {
+  font-size: 26px;
+}
+
+.review-content h2 {
+  font-size: 20px;
+  margin-top: 22px;
+}
+
+.review-content h3 {
+  font-size: 17px;
+  margin-top: 16px;
+}
+
+.review-content h1,
+.review-content h2,
+.review-content h3 {
+  color: #a5b4fc;
+}
+
+.review-content p {
+  color: #cbd5e1;
+  line-height: 1.7;
+  margin: 10px 0;
+}
+
+.review-content ul {
+  padding-left: 18px;
+}
+
+.review-content li {
+  margin: 6px 0;
+  color: #cbd5e1;
+}
+
+.review-content code {
+  background: #020617;
+  padding: 4px 6px;
+  border-radius: 6px;
+  color: #93c5fd;
+  font-size: 14px;
+}
+
+.review-content pre {
+  background: #020617;
+  padding: 18px;
+  border-radius: 14px;
+  margin-top: 14px;
+  overflow-x: auto;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.05);
+}
+
+/* ================= Animations ================= */
+
+@keyframes fadeIn {
+  from { opacity:0; transform: translateY(12px); }
+  to { opacity:1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0% { opacity:.4 }
+  50% { opacity:1 }
+  100% { opacity:.4 }
+}
+
+
+/* Section blocks */
+
+.review-content h3 {
+  margin-top: 28px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  font-size: 18px;
+}
+
+/* Highlight section titles */
+
+.review-content h3:first-of-type {
+  margin-top: 0;
+}
+
+/* Bullet spacing */
+
+.review-content ul {
+  margin-top: 10px;
+  margin-bottom: 18px;
+}
+
+/* Section cards */
+
+.review-content h3 + ul,
+.review-content h3 + p {
+  background: rgba(255,255,255,.02);
+  border-radius: 12px;
+  padding: 14px 18px;
+  margin-top: 12px;
+}
