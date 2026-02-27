@@ -1,0 +1,27 @@
+{
+  "name": "ai_problemsolver",
+  "version": "1.0.0",
+  "main": "temp.js",
+  
+  "scripts": {
+    "backend": "npm start --prefix backend",
+    "frontend": "npm run dev --prefix frontend",
+    "dev": "concurrently \"npm run backend\" \"npm run frontend\""
+  },
+
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ayu5h576/Ai_CodeReviewer.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ayu5h576/Ai_CodeReviewer/issues"
+  },
+  "homepage": "https://github.com/Ayu5h576/Ai_CodeReviewer#readme",
+  "description": "",
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}

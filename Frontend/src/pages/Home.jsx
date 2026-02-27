@@ -9,7 +9,8 @@ export default function Home() {
         <nav>
           <a href="#">Features</a>
           <a href="#">Docs</a>
-          <button className="ghost">Sign in</button>
+          <Link to="/Sign"> <button className="ghost">Sign in</button></Link>
+         
           <button className="primary">Get Started</button>
         </nav>
       </header>
